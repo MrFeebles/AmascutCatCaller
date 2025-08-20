@@ -4020,120 +4020,31 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_alt1_base__;
 
 /***/ }),
 
-/***/ "canvas":
-/*!*************************!*\
-  !*** external "canvas" ***!
-  \*************************/
+/***/ "./. sync recursive":
+/*!*****************!*\
+  !*** ././ sync ***!
+  \*****************/
 /***/ ((module) => {
 
-"use strict";
-if(typeof __WEBPACK_EXTERNAL_MODULE_canvas__ === 'undefined') { var e = new Error("Cannot find module 'canvas'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_canvas__;
+function webpackEmptyContext(req) {
+	var e = new Error("Cannot find module '" + req + "'");
+	e.code = 'MODULE_NOT_FOUND';
+	throw e;
+}
+webpackEmptyContext.keys = () => ([]);
+webpackEmptyContext.resolve = webpackEmptyContext;
+webpackEmptyContext.id = "./. sync recursive";
+module.exports = webpackEmptyContext;
 
 /***/ }),
 
-/***/ "electron/common":
-/*!**********************************!*\
-  !*** external "electron/common" ***!
-  \**********************************/
-/***/ ((module) => {
-
-"use strict";
-if(typeof __WEBPACK_EXTERNAL_MODULE_electron_common__ === 'undefined') { var e = new Error("Cannot find module 'electron/common'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_electron_common__;
-
-/***/ }),
-
-/***/ "sharp":
-/*!************************!*\
-  !*** external "sharp" ***!
-  \************************/
-/***/ ((module) => {
-
-"use strict";
-if(typeof __WEBPACK_EXTERNAL_MODULE_sharp__ === 'undefined') { var e = new Error("Cannot find module 'sharp'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_sharp__;
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
-(() => {
-"use strict";
+/***/ "./index.ts":
 /*!******************!*\
   !*** ./index.ts ***!
   \******************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alt1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alt1 */ "../node_modules/alt1/dist/base/index.js");
 /* harmony import */ var alt1__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(alt1__WEBPACK_IMPORTED_MODULE_0__);
@@ -4146,6 +4057,48 @@ var _a, _b, _c, _d;
 
 
 
+function dbg(msg) {
+    var el = document.getElementById("output");
+    var line = document.createElement("div");
+    line.style.color = "#9ca3af";
+    line.textContent = msg;
+    el === null || el === void 0 ? void 0 : el.appendChild(line);
+    console.log("[CatCaller]", msg);
+}
+function quickDiagnostics() {
+    var _a, _b;
+    var a = window.alt1;
+    dbg("Alt1 present: ".concat(!!a));
+    if (!a) {
+        dbg("Open this page INSIDE Alt1 (Apps → Browser → open the file).");
+        return;
+    }
+    try {
+        dbg("Alt1 perms \u2192 pixel:".concat(a.permissionPixel, " overlay:").concat(a.permissionOverlay));
+    }
+    catch (_c) { }
+    // Chatbox sanity check
+    try {
+        var ChatBoxReader_1 = ( false || __webpack_require__("./. sync recursive") === void 0 ? void 0 : __webpack_require__.c)
+            ? (_a = (__webpack_require__(/*! alt1/chatbox */ "../node_modules/alt1/dist/chatbox/index.js")["default"])) !== null && _a !== void 0 ? _a : __webpack_require__(/*! alt1/chatbox */ "../node_modules/alt1/dist/chatbox/index.js")
+            : (_b = window.ChatBoxReader) !== null && _b !== void 0 ? _b : null;
+        // if you already imported ChatBoxReader at top, just use that:
+        // const r = new ChatBoxReader();
+        // (r as any).readargs = { colors: [] };  // your app already sets this later
+        // minimal check using your existing import:
+        var r = null;
+        try {
+            r = new ChatBoxReader_1(); // you already import this at the top
+        }
+        catch (_d) { }
+        dbg("Chat reader created: ".concat(!!r));
+        dbg("Chat reader class available: ".concat(!!r));
+    }
+    catch (e) {
+        dbg("Chat reader load error: " + (e === null || e === void 0 ? void 0 : e.message));
+    }
+}
+window.addEventListener("load", function () { return setTimeout(quickDiagnostics, 300); });
 // ---------- UI ----------
 var SHOW_LAST_N = 3;
 var HEX = {
@@ -4504,8 +4457,128 @@ function main() {
 }
 window.addEventListener("load", main);
 
-})();
 
+/***/ }),
+
+/***/ "canvas":
+/*!*************************!*\
+  !*** external "canvas" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+if(typeof __WEBPACK_EXTERNAL_MODULE_canvas__ === 'undefined') { var e = new Error("Cannot find module 'canvas'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_canvas__;
+
+/***/ }),
+
+/***/ "electron/common":
+/*!**********************************!*\
+  !*** external "electron/common" ***!
+  \**********************************/
+/***/ ((module) => {
+
+"use strict";
+if(typeof __WEBPACK_EXTERNAL_MODULE_electron_common__ === 'undefined') { var e = new Error("Cannot find module 'electron/common'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_electron_common__;
+
+/***/ }),
+
+/***/ "sharp":
+/*!************************!*\
+  !*** external "sharp" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+if(typeof __WEBPACK_EXTERNAL_MODULE_sharp__ === 'undefined') { var e = new Error("Cannot find module 'sharp'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_sharp__;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			loaded: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = __webpack_module_cache__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// module cache are used so entry inlining is disabled
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	var __webpack_exports__ = __webpack_require__("./index.ts");
+/******/ 	
 /******/ 	return __webpack_exports__;
 /******/ })()
 ;
